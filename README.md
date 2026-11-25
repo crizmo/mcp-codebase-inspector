@@ -31,7 +31,7 @@ Vendor directories and files over 2 MB are skipped. Paths are confined to `MCP_R
 ## Quickstart
 
 ```bash
-git clone <your-repo-url> mcp-codebase-inspector
+git clone https://github.com/crizmo/mcp-codebase-inspector.git
 cd mcp-codebase-inspector
 python3 -m pip install -e .
 opencode mcp add codebase -- "$(python3 -c 'import sys;print(sys.executable)')" mcp_server.py
