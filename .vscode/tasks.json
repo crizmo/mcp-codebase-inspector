@@ -1,0 +1,33 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Install + register MCP server",
+      "type": "shell",
+      "command": "python3 -m pip install -e . && opencode mcp add codebase -- \"$(python3 -c 'import sys;print(sys.executable)')\" mcp_server.py",
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": []
+    },
+    {
+      "label": "Big Pickle: analyze this repo",
+      "type": "shell",
+      "command": "opencode run --model opencode/big-pickle --auto \"Use the codebase MCP tools to analyze this project. Tell me what it does, its main components, and two concrete improvements.\"",
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": []
+    },
+    {
+      "label": "MCP protocol inspector",
+      "type": "shell",
+      "command": "python3 mcp_inspect.py",
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": []
+    },
+    {
+      "label": "Run tests",
+      "type": "shell",
+      "command": "python3 -m unittest discover -s tests -t . -v",
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": []
+    }
+  ]
+}
